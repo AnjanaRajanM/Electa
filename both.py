@@ -3,8 +3,8 @@ import numpy as np
 import os
 import face_recognition
 
-test_original = cv2.imread("SOCOFing/ss.BMP ")
-#cv2.imshow("Original", cv2.resize(test_original, None, fx=1, fy=1))
+test_original = cv2.imread("Fingerprintdataset/a.BMP ")
+cv2.imshow("Original", cv2.resize(test_original, None, fx=1, fy=1))
 
 #test_original = cv2.imread("SOCOFing\Real/try.BMP ")
 #600__M_Right_middle_finger
@@ -14,8 +14,8 @@ filename = None
 image = None
 kp1, kp2, mp = None, None, None
 
-for file in [file for file in os.listdir("SOCOFing\Real")]:
-    fingerprint_database_image = cv2.imread("SOCOFing\Real/" + file)
+for file in [file for file in os.listdir("Fingerprintdataset\Real")]:
+    fingerprint_database_image = cv2.imread("Fingerprintdataset\Real/" + file)
 
     sift = cv2.SIFT_create()
 
@@ -109,9 +109,10 @@ while True:
         if True in results:  # If at least one is true, get a name of first of found labels
             match = known_names[results.index(True)]
             print(f' - {match[:-4]} from {results}')
-
             break
 
     if match:
         break
+
+
 
